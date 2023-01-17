@@ -17,6 +17,10 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
+      - persist_to_workspace:
+          root: ~/
+          paths:
+              - output.txt
   print-world:
     docker:
       - image: cimg/base:stable
@@ -25,10 +29,10 @@ jobs:
       - run: 
           name: echo 'another one test fr persisting to workspace' > ~/another.txt
           # command: echo $ANOTHERTEST
-      - persist_to_workspace:
-          root: ~/
-          paths:
-              - output.txt
+      - attach_workspace:
+          at: ~/
+      - run: cat ~/output.txt
+
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
