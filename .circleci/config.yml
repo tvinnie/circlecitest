@@ -48,14 +48,3 @@ workflows:
       - print-world
     requires:
       - requires disallowed-key
-
-
-
-{:workflows 
-  {
-    :print-world-workflow 
-      {
-        :requires disallowed-key
-      }
-  }
-}
