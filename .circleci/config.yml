@@ -47,4 +47,15 @@ workflows:
     jobs:
       - print-world
     requires:
-      - print-hello-workflow
+      - requires disallowed-key
+
+
+
+{:workflows 
+  {
+    :print-world-workflow 
+      {
+        :requires disallowed-key
+      }
+  }
+}
