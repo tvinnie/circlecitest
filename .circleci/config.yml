@@ -19,7 +19,7 @@ jobs:
           command: "echo Hello, World!"
   print-hello:
     docker:
-      - image: circleci/node:13.8.0.
+      - image: cimg/base:stable
     steps:
       - checkout
       - run: 
@@ -27,7 +27,7 @@ jobs:
           command: 'echo Hello Kenya'
   print-world:
     docker:
-      - image: circleci/node:13.8.0.
+      - image: cimg/base:stable
     steps:
       - checkout
       - run: 
@@ -46,4 +46,3 @@ workflows:
   print-world-workflow:
     jobs:
       - print-world
-      
